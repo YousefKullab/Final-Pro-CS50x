@@ -1,7 +1,7 @@
-"# Final-Project-CS50" 
+# Final-Project-CS50
 
 The Project Idea is the Full Responsive e-commerce Website
-Techniques That Use:
+# Techniques That Use:
 * Html Css Js For Front-End
 * Python Flask and Sqlite For Back-End
 

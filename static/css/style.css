@@ -78,6 +78,7 @@ hr{
    font-size: 20px;
    top: 0;
    left: 0;
+   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
 }
 
 .nav-logo{
@@ -204,5 +205,65 @@ hr{
 #banner h1{
    color: #fff;
 }
+
+/* Footer */
+
+.payment{
+   width: 70px;
+   height: 70px;
+   margin:3px;
+}
+
+footer{
+   background-color: #222222;
+}
+
+footer h2{
+   color:coral;
+   font-weight: 700;
+}
+
+footer h5{
+   color: #d8d8d8;
+   font-weight: 700;
+   font-size: 1.2rem;
+}
+
+footer li{
+   padding-bottom: 4px;
+}
+
+footer li a{
+   font-size: 0.8rem;
+   color:#999;
+}
+
+footer li a:hover{
+   color: #d8d8d8; 
+   text-decoration: none;
+}
+
+footer p{
+   color:#999;
+   font-size: 0.8rem;
+}
+
+footer .copyright a{
+   color: black;
+   width: 38px;
+   height: 38px;
+   background-color: white;
+   display: inline-block;
+   text-align: center;
+   line-height: 38px;
+   border-radius: 50%;
+   transition: 0.3 ease;
+   margin: 0 5px;
+}
+
+footer .copyright a:hover{
+   background-color: coral;
+}
+
 
 

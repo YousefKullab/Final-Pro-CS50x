@@ -32,6 +32,8 @@
     
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
+
+              <!-- Note Here You Must Make Navbar Active-->
               
               <li class="nav-item">
                 <a class="nav-link" href="/">Home</a>
@@ -57,6 +59,79 @@
     {% block body %}
     {% endblock body %}
     
+    <!-- Footer For All Pages-->
+    <footer class="mt-5 py-5">
+
+      <div class="row container mx-auto pt-5">
+            <div class="footer-one col-lg-3 col-md-6 col-12">
+                <img src="static\images\logo\black.png" alt="" style ="width:200px">
+                <h2>JoBa.</h2>
+                <p>Our service is an online store that offers some international brands at the lowest prices</p>
+            </div>
+            <div class="footer-one col-lg-3 col-md-6 col-12">
+                <h5 class="pb-2">Sections</h5>
+                <ul class="text-uppercase list-unstyled">
+                  <li><a href="#home">Home</a></li>
+                  <li><a href="#brand">Brands</a></li>
+                  <li><a href="#featured">Featured</a></li>
+                  <li><a href="#brand">Brands</a></li>
+                  <li><a href="#watches">Watches</a></li>
+                  <li><a href="#blouses">Blouses</a></li>
+                  <li><a href="#shoes">Shoes</a></li>
+                </ul>
+            </div>
+            <div class="footer-one col-lg-3 col-md-6 col-12">
+              <h5 class="pb-2">Contact Us</h5>
+                  <div>
+                    <h6 class="text-uppercase">Address</h6>
+                    <p>Palestine, Gaza, Rafah</p>
+                  </div>
+                  <div>
+                    <h6 class="text-uppercase">Phone</h6>
+                    <p>+970597744760</p>
+                  </div>
+                  <div>
+                    <h6 class="text-uppercase">Email</h6>
+                    <p>the1yousef98@gmail.com</p>
+                  </div>
+            </div>
+          <div class="footer-one col-lg-3 col-md-6 col-12">
+            <h5 class="pb-2">Instagram</h5>
+                <div class="row">
+                   <img src="static\images\insta\a1.jpg" alt="" class="img-fluid w-25 h-100 m-2">
+                   <img src="static\images\insta\a2.jpg" alt="" class="img-fluid w-25 h-100 m-2">
+                   <img src="static\images\insta\a3.jpg" alt="" class="img-fluid w-25 h-100 m-2">
+                   <img src="static\images\insta\a4.jpg" alt="" class="img-fluid w-25 h-100 m-2">
+                   <img src="static\images\insta\a5.jpg" alt="" class="img-fluid w-25 h-100 m-2">
+                </div>
+          </div>
+      </div>
+  
+      <div class="copyright mt-5">
+          <div class="row container mx-auto">
+  
+                <div class="col-lg-3 col-md-6 col-12 mb-4">
+                      <img src="static\images\payment\visa.png" alt="" class="payment">
+                      <img src="static\images\payment\paypal.png" alt="" class="payment">
+                      <img src="static\images\payment\bitcoin.png" alt="" class="payment">
+  
+                </div>
+  
+                <div class="col-lg-4 col-md-6 col-12 text-nowrap">
+                  <p>JoBa. eCommerce &#169; 2022. All Rights Reserved</p>
+                </div>
+  
+                <div class="col-lg-4 col-md-6 col-12">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                </div>
+          </div>
+      </div>
+  
+    </footer>
 
     <script src="{{ url_for('static', filename='js/main.js')}}"></script>
 </body>

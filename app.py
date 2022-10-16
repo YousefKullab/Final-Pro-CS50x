@@ -1,5 +1,6 @@
 
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
+from requests import request
 
 app = Flask(__name__)
 
@@ -10,6 +11,10 @@ def home():
 @app.route("/shop")
 def shop():
     return render_template("shop.html", title="JoBa-Shop")
+
+@app.route("/product")
+def product():
+    return render_template("product.html", title="JoBa-Product Details")
 
 @app.route("/blog")
 def blog():

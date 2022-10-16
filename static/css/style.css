@@ -208,12 +208,6 @@ hr{
 
 /* Footer */
 
-.payment{
-   width: 70px;
-   height: 70px;
-   margin:3px;
-}
-
 footer{
    background-color: #222222;
 }
@@ -287,3 +281,19 @@ footer .copyright a:hover{
    color: black;
 }
 
+/* Product Page */
+
+#featured .product .product-link {
+   text-decoration: none;
+   color: #1d1d1d;
+}
+
+.s-product .small-imgs{
+   display:flex;
+   justify-content: space-between;
+}
+
+.s-product .small-imgs .small-img-col{
+   flex-basis: 24%;
+   cursor: pointer;
+}

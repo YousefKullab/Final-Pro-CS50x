@@ -5,7 +5,7 @@
     <section class="container s-product my-5 pt-5">
         <div class="row mt-5">
             <div class="col-lg-5 col-md-12 col-12">
-                <img class="img-fluid w-100 py-1" src="static\images\img\shop\1.jpg" alt="">
+                <img class="img-fluid w-100 py-1" id="main-image" src="static\images\img\shop\1.jpg" alt="">
                 <div class="small-imgs">
                     <div class="small-img-col">
                         <img src="static/images/img/shop/1.jpg" alt="" width="100%" class="small-img">
@@ -22,9 +22,98 @@
                 </div>
             </div>
 
-
-            
+            <div class="col-lg-6 col-md-12 col-12">
+                <h6>Home / T-Shirt</h6>
+                <h3>T-Shirt - Men's</h3>
+                <h2>$24.00</h2>
+                <form>
+                    <select class="my-3">
+                        <option>Select Size</option>
+                        <option>Small</option>
+                        <option>M</option>
+                        <option>Large</option>
+                        <option>XL</option>
+                        <option>XXL</option>
+                    </select>
+                    <input type="number" value="1" min="1" max="12">
+                    <button class="btn buy-btn">Add To Cart</button>
+                </form>
+                <h4 class="my-4">Features</h4>
+                <ul>
+                    <li>Style: Tops, Shirts, Tee</li>
+                    <li>Season: Summer</li>
+                    <li>Size: S,M,L,XL,2XL (Please refer to the size chart to get the perfect fit when buying a top.)</li>
+                    <li>Material: Made from premium and super soft Cotton, good quality mens casual tops, casual t-shirt is breathable fabric, short sleeve shirt, printed tees tops great for Autumn and Spring days.</li>
+                    <li>Design: Casual tops, short sleeve, casual T-Shirts, casual t-shirt, fashion tee, casual tops t-shirt, casual wear, stylish and fashion design, summer casual shirt, it is made with high quality fabric, breathable, loose and comfortable, soft, friendly to skin. well made.</li>
+                    <li>Tops Care: Hand wash or machine washing with low temperature is recommended.</li>
+                </ul>
+            </div>  
         </div>
     </section>
+    
+    <section id="featured" class="my-5 pb-5">
+
+        <div class="container text-center mt-5 py-5">
+            <h3>Related Products</h3>
+            <hr class="mx-auto">
+        </div>
+        <div class="row mx-auto container-fluid">
+            <div class="product text-center col-lg-3 col-md-4 col-12">
+              <img class="img-fluid mb-3 w" src="static\images\img\featured\1.jpg" alt="">
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </div>
+              <h5 class="product-name">Sport Boots</h5>
+              <h4 class="product-price">$59.00</h4>
+              <button class="btn buy-btn">Buy Now</button>
+            </div>
+            <div class="product text-center col-lg-3 col-md-4 col-12">
+              <img class="img-fluid mb-3 w" src="static\images\img\featured\2.jpg" alt="">
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </div>
+              <h5 class="product-name">Training Shoe- Men's</h5>
+              <h4 class="product-price">$19.19</h4>
+              <button class="btn buy-btn">Buy Now</button>
+            </div>
+            <div class="product text-center col-lg-3 col-md-4 col-12">
+              <img class="img-fluid mb-3" src="static\images\img\featured\3.jpg" alt="">
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </div>
+              <h5 class="product-name">Sport Bag For Gym</h5>
+              <h4 class="product-price">$59.00</h4>
+              <button class="btn buy-btn">Buy Now</button>
+            </div>
+            <div class="product text-center col-lg-3 col-md-4 col-12">
+              <img class="img-fluid mb-3 w" src="static\images\img\featured\4.jpg" alt="">
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </div>
+              <h5 class="product-name">Beanie</h5>
+              <h4 class="product-price">$24.95</h4>
+              <button class=" btn buy-btn">Buy Now</button>
+            </div>
+        </div>
+      </section>
+
+
+      
 
 {% endblock %}

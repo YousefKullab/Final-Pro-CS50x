@@ -297,3 +297,28 @@ footer .copyright a:hover{
    flex-basis: 24%;
    cursor: pointer;
 }
+
+.s-product select{
+   display:block;
+   padding: 5px 10px;
+}
+
+.s-product input{
+   width: 50px;
+   height: 40px;
+   padding-left: 10px;
+   font-size: 16px;
+   margin-right: 10px;
+}
+.s-product input:focus{
+   outline: none;
+}
+.s-product .buy-btn{
+   background-color: coral;
+   opacity: 1;
+   transition: 0.3s all;
+}
+
+
+
+

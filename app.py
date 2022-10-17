@@ -8,21 +8,21 @@ app = Flask(__name__)
 def home():
     return render_template("home.html", title="JoBa-Home")
 
-@app.route("/shop")
-def shop():
-    return render_template("shop.html", title="JoBa-Shop")
+@app.route("/shop1")
+def shop1():
+    return render_template("shop1.html", title="JoBa-Shop1")
+
+@app.route("/shop2")
+def shop2():
+    return render_template("shop2.html", title="JoBa-Shop2")
+
+@app.route("/shop3")
+def shop3():
+    return render_template("shop3.html", title="JoBa-Shop3")
 
 @app.route("/product")
 def product():
     return render_template("product.html", title="JoBa-Product Details")
-
-@app.route("/blog")
-def blog():
-    return render_template("blog.html", title="JoBa-Blog")
-
-@app.route("/about")
-def about():
-    return render_template("about.html", title="JoBa-About")
 
 @app.route("/contact")
 def contact():

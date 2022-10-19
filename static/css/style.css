@@ -319,6 +319,8 @@ footer .copyright a:hover{
    transition: 0.3s all;
 }
 
+/* Top Button Home page */
+
 #myBtn {
    display: none; 
    position: fixed; 
@@ -340,5 +342,38 @@ footer .copyright a:hover{
    background-color: #555; /* Add a dark-grey background on hover */
  }
 
+/* Contact Page */
 
+#contact{
+   display: flex;
+   justify-content: space-between;
+}
+
+#contact .info-icon{
+   font-size: 1.5rem;
+   padding-bottom: 20px;
+}
+
+#contact .info-icon i{
+   font-size: 1.5rem;
+   padding-right: 15px;
+   color: black;
+}
+
+#contact .info-icon i:hover{
+   color: coral;
+   transition: 0.3s ease;
+   cursor: pointer;
+}
+
+#contact .info-icon a{
+   text-decoration: none;
+   color: black;
+   font-size: 1.6rem;
+   font-weight: 600;
+}
+
+#contact .info-icon .email-link:hover{
+   color: coral;
+}
 

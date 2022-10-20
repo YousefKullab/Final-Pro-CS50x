@@ -344,36 +344,21 @@ footer .copyright a:hover{
 
 /* Contact Page */
 
-#contact{
-   display: flex;
-   justify-content: space-between;
-}
-
-#contact .info-icon{
-   font-size: 1.5rem;
-   padding-bottom: 20px;
-}
-
-#contact .info-icon i{
-   font-size: 1.5rem;
-   padding-right: 15px;
-   color: black;
-}
-
-#contact .info-icon i:hover{
+.contact .contact-icons ul li:hover{
    color: coral;
-   transition: 0.3s ease;
    cursor: pointer;
 }
 
-#contact .info-icon a{
-   text-decoration: none;
-   color: black;
-   font-size: 1.6rem;
-   font-weight: 600;
+.contact .btn-primary{
+   background-color: #1d1d1d;
+   width: 100px;
+   height: 40px;   
 }
 
-#contact .info-icon .email-link:hover{
-   color: coral;
+.contact .btn-primary:hover{
+   background-color: coral;
 }
 
+.contact  textarea.form-control{
+   height: 120px;
+}

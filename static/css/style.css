@@ -103,7 +103,7 @@ hr{
 .navbar i:hover,
 .navbar i:active,
 .navbar-light .navbar-collapse .navbar-nav .nav-link:active{
-   color: #ff7f50;
+   color: coral;
 }
 
 .navbar i{
@@ -361,4 +361,54 @@ footer .copyright a:hover{
 
 .contact  textarea.form-control{
    height: 120px;
+}
+
+.login-body{
+   height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: #d4d4d4;
+}
+
+.login{
+   width: 400px;
+   height: min-content;
+   padding: 20px;
+   border-radius: 12px;
+   background-color:#fff;
+}
+
+.login h1{
+   font-size: 36px;
+   margin-bottom: 25px;
+}
+
+.login form{
+   font-size: 20px;
+}
+
+.login form .form-group{
+   margin-bottom: 12px;
+}
+
+.login form input[type="submit"]{
+   font-size: 20px;
+   margin-top: 15px;
+   background-color: black;
+   color: white;
+}
+
+.login form input[type="submit"]:hover{
+   background-color: coral;
+   color: black;
+}
+
+.login form .register-link{
+   color: black;
+   display:block;
+   margin-top: 20px;
+   text-align: center;
+   font-size: 1rem;
+   font-weight: 500;
 }

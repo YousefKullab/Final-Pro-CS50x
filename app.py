@@ -10,13 +10,13 @@ app = Flask(__name__)
 def home():
     return render_template("home.html", title="JoBa-Home")
 
-@app.route("/login")
-def login():
-    return render_template("login.html", title="JoBa-Login")
-
 @app.route("/register")
 def register():
     return render_template("register.html", title="JoBa-Register")
+
+@app.route("/login")
+def login():
+    return render_template("login.html", title="JoBa-Login")
 
 @app.route("/shop1")
 @login_required

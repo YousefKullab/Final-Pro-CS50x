@@ -363,6 +363,8 @@ footer .copyright a:hover{
    height: 120px;
 }
 
+/* Login Page */
+
 .login-body{
    height: 100vh;
    display: flex;

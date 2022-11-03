@@ -4,7 +4,7 @@ from sqlalchemy.sql import func
 
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    data = db.Column(db.String(10000))
+    date = db.Column(db.String(10000))
     product_name = db.Column(db.DateTime(timezone= True), default=func.now())
     product_price = db.Column(db.Integer)
     product_num = db.Column(db.Integer)

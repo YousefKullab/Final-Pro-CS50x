@@ -34,3 +34,6 @@ def product():
 @login_required
 def contact_us():
     return render_template("contact_us.html", title="JoBa-Contact_Us", user=current_user)
+
+
+

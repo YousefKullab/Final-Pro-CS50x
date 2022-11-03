@@ -32,7 +32,7 @@ def logout():
 def sign_up():
     if request.method == "POST":
         email = request.form.get("email")
-        first_name = request.form.get("firstName")
+        name = request.form.get("firstName")
         password = request.form.get("password")
         confirm = request.form.get("confirm") 
         
@@ -41,14 +41,14 @@ def sign_up():
             flash("Email already exists!", category="error")
         elif len(email) < 6:
             flash("Email must be greater than 5 characters.", category="error")
-        elif len(first_name) < 3:
+        elif len(name) < 3:
             flash("Name must be greater than 2 characters.", category="error")
         elif len(password) < 7:
             flash("Password must be greater than 6 characters.", category="error")
         elif password != confirm:
             flash("Passwords don't match.", category="error")
         else:
-            new_user = User(email=email, first_name=first_name, password=generate_password_hash(password, method='sha256'))
+            new_user = User(email=email, first_name=name, password=generate_password_hash(password, method='sha256'))
             db.session.add(new_user)
             db.session.commit()
             # login_user(user, remember=True)
@@ -57,3 +57,35 @@ def sign_up():
     return render_template("sign_up.html", title="JoBa-Sign_Up", user=current_user)
 
 
+
+@auth.route("/profile", methods=["GET", "POST"])
+@login_required
+def profile():
+    if request.method == "GET":
+        return render_template("profile.html", title="JoBa-Profile", user=current_user)
+    
+    # Allow to user change password
+    else:
+        user = User.query.filter_by(email=current_user.email).first()
+        hash_pass = user.password
+        my_password = request.form.get("my_password")
+        new_password = request.form.get("new_password")
+        
+        if not my_password:
+            flash("Enter the old password field", category="error")
+            return redirect(url_for("auth.profile"))
+            
+        if not new_password:
+            flash("Enter the new password field", category="error")  
+            return redirect(url_for("auth.profile"))  
+        
+        if not check_password_hash(hash_pass, my_password):
+            flash("Enter the correct old password!", category="error")  
+            return redirect(url_for("auth.profile"))  
+        
+        else:
+            hash = generate_password_hash(new_password)
+            user.password = hash  
+            db.session.commit()
+            flash("The Password Will Be Changed!") 
+            return redirect(url_for("auth.profile"))

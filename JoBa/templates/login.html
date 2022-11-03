@@ -17,32 +17,42 @@
     
 </head>
 <body class="login-body">
-    <div class="login">
-        <h1 class="text-center">Create New Account</h1>
-        <form class="needs-validation">
-            <div class="form-group was-validated">
+
+    <!-- Run Flash Message-->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            {% if category == "error" %}
+                <div class="alert alert-danger alert-dismissable fade show" role="alert">{{ message }}
+                    <button class="close" type="button" data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% else %}
+                <div class="alert alert-success alert-dismissable fade show" role="alert">{{ message }}
+                    <button class="close" type="button" data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <div class="login mt-5 pt-5">
+        <h1 class="text-center">Hello Again!</h1>
+        <form method="POST">
+            <div class="form-group">
                 <label class="form-label" for="email">Email Address</label>
-                <input class="form-control" name="email" type="email" id="email" required></input>
-                <div class="invalid-feedback">
-                    Please enter you email address
-                </div>
+                <input class="form-control" name="email" type="email" id="email" placeholder="Email Address"></input>
             </div>
-            <div class="form-group was-validated">
+            <div class="form-group">
                 <label class="form-label" for="password">Password</label>
-                <input class="form-control" name="password" type="password" id="password" required></input>
-                <div class="invalid-feedback">
-                    Please enter you password
-                </div>
+                <input class="form-control" name="password" type="password" id="password" placeholder="Password"></input>
             </div>
-            <div class="form-group was-validated">
-                <label class="form-label" for="password">Confirm Password</label>
-                <input class="form-control" type="password" id="confirm-password" required></input>
-                <div class="invalid-feedback">
-                    Please enter you confirm password 
-                </div>
-            </div>
-            <input class="btn w-100" type="submit" value="Register"></input>
-            <a href="login" class="register-link">I Already Have Account</a>
+            <input class="btn w-100" type="submit" value="Log In"></input>
+            <a href="sign-up" class="register-link">I Don't Have Account</a>
+            <a href="/" class="joba-link">JoBa.</a>
         </form>
     </div>
 

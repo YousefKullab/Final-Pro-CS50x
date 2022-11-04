@@ -437,3 +437,25 @@ footer .copyright a:hover{
 .profile_flash{
    margin-top: 120px;
 }
+
+/* Cart Page */
+
+.money-form .money-label{
+   font-size: 1.2rem;
+   font-weight: 600;
+}
+
+.money-form .money-input{
+   text-align: center;
+   padding: 5px;
+}
+
+.money-form .money-btn{
+   background-color: coral;
+}
+
+.money-form .money-btn:hover{
+   transform: 0.3 ease;
+   background-color: rgb(196, 91, 53);
+   cursor: pointer;
+}

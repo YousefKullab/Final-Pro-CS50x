@@ -17,9 +17,10 @@
     
 </head>
 <body>
+
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light py-1 fixed-top">
-  <div class="container">
+    <div class="container">
       <a class="navbar-brand" href="/">
         <img src="static/images/logo/white.png" alt="logo" class="nav-logo">
         JoBa.
@@ -88,46 +89,47 @@
         {% endif %}
         {% endwith %}
   </div>
-  <!-- User Info-->
-    <div class="container my-5 pt-5">
-      <div class="container py-5">
-        <h2 class="font-weight-bold">User Info</h2>
+
+
+  <!-- Show the Product in cart page -->
+
+  <div class="container ">
+        <div class="container pt-5">
+        <h2 class="font-weight-bold">Shopping Cart</h2>
         <hr>
-      </div>
-  
-      <table class="table mb-5">
-          <thead>
-            <tr>
-              <th scope="col">Name :</th>
-              <td scope="col">{{user.first_name}}</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Email Address :</th>
-              <td>{{user.email}}</td>
-            </tr>
-            <tr>
-              <th scope="row">Your Budget :</th>
-              <td>{{user.budget}} $</td>
-            </tr>
-          </tbody>
-        </table>
-  
-        <form method="POST">
-          <div class="mb-3">
-              <input class="form-control mx-auto w-auto" id="password" name="my_password" placeholder="Old Password" type="password">
-          </div>
-          <div class="mb-3">
-              <input class="form-control mx-auto w-auto" id="password" name="new_password" placeholder="New Password" type="password">
-          </div>
-          <div class="col text-center">
-              <button class="btn btn-default" type="submit">Change Password</button>
-          </div>
-      </form>
-  
-    </div>
-    
-    <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+        </div>
+        <!-- Add Money -->
+        <form method="POST" class="money-form mt-5 mb-4">
+            <div class="form-group">
+                <label class="form-label money-label" for="money">Add Money To Your Account</label>
+                <input name="money" type="number" id="money" placeholder="Add Money" class="money-input ml-3"></input>
+                <label class="form-label money-label mx-2" for="Dollar">$</label>
+                <button class="money-btn btn ml-3">Add Money</button>
+            </div>   
+        </form>
+        
+        <table class="table table-bordered" style="text-align: center;">
+            <thead>
+              <tr style="background-color:coral;">
+                <th scope="col">Remove</th>
+                <th scope="col">Product-Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><i class="fa-solid fa-trash-can"></i></th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>@mdo</td>
+              </tr>
+            </tbody>
+          </table>
+ </div>
+
+  <script src="{{ url_for('static', filename='js/main.js')}}"></script>
 </body>
 </html>

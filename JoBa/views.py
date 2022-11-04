@@ -30,6 +30,11 @@ def shop3():
 def product():
     return render_template("product.html", title="JoBa-Product", user=current_user)
 
+@views.route("/cart")
+@login_required
+def cart():
+    return render_template("cart.html", title="JoBa-Cart", user=current_user)
+
 @views.route("/contact_us")
 @login_required
 def contact_us():

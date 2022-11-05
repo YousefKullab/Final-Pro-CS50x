@@ -4,10 +4,11 @@ from sqlalchemy.sql import func
 
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    date = db.Column(db.String(10000))
-    product_name = db.Column(db.DateTime(timezone= True), default=func.now())
+    date = db.Column(db.DateTime(timezone= True), default=func.now())
+    product_name = db.Column(db.String(1000))
     product_price = db.Column(db.Integer)
-    product_num = db.Column(db.Integer)
+    size = db.Column(db.String(1000))
+    quantity = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class User(db.Model, UserMixin):

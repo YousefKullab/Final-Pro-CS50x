@@ -24,10 +24,11 @@
 
             <div class="col-lg-6 col-md-12 col-12">
                 <h6>Home / T-Shirt</h6>
-                <h3>T-Shirt - Men's</h3>
-                <h2>$24.00</h2>
-                <form>
-                    <select class="my-3">
+                <h3 id="product-name">T-Shirt - Men's</h3>
+                <h2 style="display:inline;">$</h2>
+                <h2 id="product-price" style="display:inline;">24.00</h2>
+                <form method="POST">
+                    <select class="my-3" id="select-size" name="select-size">
                         <option>Select Size</option>
                         <option>Small</option>
                         <option>M</option>
@@ -35,9 +36,12 @@
                         <option>XL</option>
                         <option>XXL</option>
                     </select>
-                    <input type="number" value="1" min="1" max="12">
+                    <input type="number" value="1" min="1" max="12" id="quantity" , name="quantity">
                     <button class="btn buy-btn">Add To Cart</button>
                 </form>
+
+                <h6>{{contents}}</h6>
+
                 <h4 class="my-4">Features</h4>
                 <ul>
                     <li>Style: Tops, Shirts, Tee</li>
@@ -112,8 +116,5 @@
             </div>
         </div>
       </section>
-
-
-      
 
 {% endblock %}

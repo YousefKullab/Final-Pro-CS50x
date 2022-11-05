@@ -29,9 +29,6 @@ function topFunction() {
   document.documentElement.scrollTop = 0; 
 };
 
-// Note Hover Navbar >>> Highlight
-
-
 // Send Email  
 
 function sendEmail() {
@@ -54,6 +51,9 @@ function sendEmail() {
       })
     .catch((res) => console.log(err));
 };
+
+// Note Hover Navbar >>> Highlight
+
 
 
 

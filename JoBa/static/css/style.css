@@ -459,3 +459,12 @@ footer .copyright a:hover{
    background-color: rgb(196, 91, 53);
    cursor: pointer;
 }
+
+.fa-trash-alt:before, .fa-trash-can:before {
+   content: "\f2ed";
+   color: red;
+   cursor: pointer;
+}
+
+
+/* Software Engineer Joseph */

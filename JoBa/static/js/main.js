@@ -52,8 +52,18 @@ function sendEmail() {
     .catch((res) => console.log(err));
 };
 
-// Note Hover Navbar >>> Highlight
+// Note Hover Navbar >>> Highlight ??????????????????????????????
 
+// Delete Product 
+
+function deleteProduct(productId){
+  fetch("/delete-product",{
+      method: "POST",
+      body: JSON.stringify({productId : productId})
+  }).then((_res) =>{
+      window.location.href = "/cart"
+  });
+}
 
 
 

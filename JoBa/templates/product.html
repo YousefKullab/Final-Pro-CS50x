@@ -1,120 +1,280 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <!-- Font-Awesome library  : https://fontawesome.com/ -->
+    <!-- Font-Awesome cdn : https://cdnjs.com/libraries/font-awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">   
+    <!-- Note Bootstrap v4.6 : https://getbootstrap.com/docs/4.6/getting-started/introduction -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light py-1 fixed-top">
+  <div class="container">
+      <a class="navbar-brand" href="/">
+        <img src="static/images/logo/white.png" alt="logo" class="nav-logo">
+        JoBa.
+      </a>
 
-{% block body %}
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <section class="container s-product my-5 pt-5">
-        <div class="row mt-5">
-            <div class="col-lg-5 col-md-12 col-12">
-                <img class="img-fluid w-100 py-1" id="main-image" src="static\images\img\shop\1.jpg" alt="">
-                <div class="small-imgs">
-                    <div class="small-img-col">
-                        <img src="static/images/img/shop/1.jpg" alt="" width="100%" class="small-img">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto"> 
+          {% if user.is_authenticated %} 
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="shop1">Shop</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact_us">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"><i class="fa-solid fa-magnifying-glass"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="profile"><i class="fa-solid fa-user"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="logout">Logout</a>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="login"><i class="fa-solid fa-right-to-bracket"></i>Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="sign-up"><i class="fa-solid fa-user-plus"></i>Sign up</a>
+              </li>
+            {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Run Flash Message-->
+  <div class="profile_flash">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                {% if category == "error" %}
+                    <div class="alert alert-danger alert-dismissable fade show" role="alert">{{ message }}
+                        <button class="close" type="button" data-dismiss="alert">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    <div class="small-img-col">
-                        <img src="static/images/img/shop/24.jpg" alt="" width="100%" class="small-img">
+                {% else %}
+                    <div class="alert alert-success alert-dismissable fade show" role="alert">{{ message }}
+                        <button class="close" type="button" data-dismiss="alert">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    <div class="small-img-col">
-                        <img src="static/images/img/shop/25.jpg" alt="" width="100%" class="small-img">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="static/images/img/shop/26.jpg" alt="" width="100%" class="small-img">
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+  </div>
+
+  <!-- User Info-->
+        <section class="container s-product my-5 pt-1">
+            <div class="row mt-5">
+                <div class="col-lg-5 col-md-12 col-12">
+                    <img class="img-fluid w-100 py-1" id="main-image" src="static\images\img\shop\1.jpg" alt="">
+                    <div class="small-imgs">
+                        <div class="small-img-col">
+                            <img src="static/images/img/shop/1.jpg" alt="" width="100%" class="small-img">
+                        </div>
+                        <div class="small-img-col">
+                            <img src="static/images/img/shop/24.jpg" alt="" width="100%" class="small-img">
+                        </div>
+                        <div class="small-img-col">
+                            <img src="static/images/img/shop/25.jpg" alt="" width="100%" class="small-img">
+                        </div>
+                        <div class="small-img-col">
+                            <img src="static/images/img/shop/26.jpg" alt="" width="100%" class="small-img">
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-lg-6 col-md-12 col-12">
-                <h6>Home / T-Shirt</h6>
-                <h3 id="product-name">T-Shirt - Men's</h3>
-                <h2 style="display:inline;">$</h2>
-                <h2 id="product-price" style="display:inline;">24.00</h2>
-                <form method="POST">
-                    <select class="my-3" id="select-size" name="select-size">
-                        <option>Select Size</option>
-                        <option>Small</option>
-                        <option>M</option>
-                        <option>Large</option>
-                        <option>XL</option>
-                        <option>XXL</option>
-                    </select>
-                    <input type="number" value="1" min="1" max="12" id="quantity" , name="quantity">
-                    <button class="btn buy-btn">Add To Cart</button>
-                </form>
-
-                <h6>{{contents}}</h6>
-
-                <h4 class="my-4">Features</h4>
-                <ul>
-                    <li>Style: Tops, Shirts, Tee</li>
-                    <li>Season: Summer</li>
-                    <li>Size: S,M,L,XL,2XL (Please refer to the size chart to get the perfect fit when buying a top.)</li>
-                    <li>Material: Made from premium and super soft Cotton, good quality mens casual tops, casual t-shirt is breathable fabric, short sleeve shirt, printed tees tops great for Autumn and Spring days.</li>
-                    <li>Design: Casual tops, short sleeve, casual T-Shirts, casual t-shirt, fashion tee, casual tops t-shirt, casual wear, stylish and fashion design, summer casual shirt, it is made with high quality fabric, breathable, loose and comfortable, soft, friendly to skin. well made.</li>
-                    <li>Tops Care: Hand wash or machine washing with low temperature is recommended.</li>
-                </ul>
-            </div>  
-        </div>
-    </section>
     
-    <section id="featured" class="my-5 pb-5">
+                <div class="col-lg-6 col-md-12 col-12">
+                    <h6>Home / T-Shirt</h6>
+                    <h3 id="product-name">T-Shirt - Men's</h3>
+                    <h2 style="display:inline;">$</h2>
+                    <h2 id="product-price" style="display:inline;">24.00</h2>
+                    <form method="POST">
+                        <select class="my-3" id="select-size" name="select-size">
+                            <option>Select Size</option>
+                            <option>Small</option>
+                            <option>M</option>
+                            <option>Large</option>
+                            <option>XL</option>
+                            <option>XXL</option>
+                        </select>
+                        <input type="number" value="1" min="1" max="12" id="quantity" , name="quantity">
+                        <button class="btn buy-btn">Add To Cart</button>
+                    </form>
+    
+                    <h6>{{contents}}</h6>
+    
+                    <h4 class="my-4">Features</h4>
+                    <ul>
+                        <li>Style: Tops, Shirts, Tee</li>
+                        <li>Season: Summer</li>
+                        <li>Size: S,M,L,XL,2XL (Please refer to the size chart to get the perfect fit when buying a top.)</li>
+                        <li>Material: Made from premium and super soft Cotton, good quality mens casual tops, casual t-shirt is breathable fabric, short sleeve shirt, printed tees tops great for Autumn and Spring days.</li>
+                        <li>Design: Casual tops, short sleeve, casual T-Shirts, casual t-shirt, fashion tee, casual tops t-shirt, casual wear, stylish and fashion design, summer casual shirt, it is made with high quality fabric, breathable, loose and comfortable, soft, friendly to skin. well made.</li>
+                        <li>Tops Care: Hand wash or machine washing with low temperature is recommended.</li>
+                    </ul>
+                </div>  
+            </div>
+        </section>
+        
+        <section id="featured" class="my-5 pb-5">
+            <div class="container text-center mt-5 py-5">
+                <h3>Related Products</h3>
+                <hr class="mx-auto">
+            </div>
+            <div class="row mx-auto container-fluid">
+                <div class="product text-center col-lg-3 col-md-4 col-12">
+                  <img class="img-fluid mb-3 w" src="static\images\img\featured\1.jpg" alt="">
+                      <div class="star">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                      </div>
+                  <h5 class="product-name">Sport Boots</h5>
+                  <h4 class="product-price">$59.00</h4>
+                  <button class="btn buy-btn">Buy Now</button>
+                </div>
+                <div class="product text-center col-lg-3 col-md-4 col-12">
+                  <img class="img-fluid mb-3 w" src="static\images\img\featured\2.jpg" alt="">
+                      <div class="star">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                      </div>
+                  <h5 class="product-name">Training Shoe- Men's</h5>
+                  <h4 class="product-price">$19.19</h4>
+                  <button class="btn buy-btn">Buy Now</button>
+                </div>
+                <div class="product text-center col-lg-3 col-md-4 col-12">
+                  <img class="img-fluid mb-3" src="static\images\img\featured\3.jpg" alt="">
+                      <div class="star">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                      </div>
+                  <h5 class="product-name">Sport Bag For Gym</h5>
+                  <h4 class="product-price">$59.00</h4>
+                  <button class="btn buy-btn">Buy Now</button>
+                </div>
+                <div class="product text-center col-lg-3 col-md-4 col-12">
+                  <img class="img-fluid mb-3 w" src="static\images\img\featured\4.jpg" alt="">
+                      <div class="star">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                      </div>
+                  <h5 class="product-name">Beanie</h5>
+                  <h4 class="product-price">$24.95</h4>
+                  <button class=" btn buy-btn">Buy Now</button>
+                </div>
+            </div>
+          </section>
+          
+             <!-- Footer For All Pages-->
+    <footer class="mt-5 py-5">
 
-        <div class="container text-center mt-5 py-5">
-            <h3>Related Products</h3>
-            <hr class="mx-auto">
-        </div>
-        <div class="row mx-auto container-fluid">
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-              <img class="img-fluid mb-3 w" src="static\images\img\featured\1.jpg" alt="">
-                  <div class="star">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                  </div>
-              <h5 class="product-name">Sport Boots</h5>
-              <h4 class="product-price">$59.00</h4>
-              <button class="btn buy-btn">Buy Now</button>
+      <div class="row container mx-auto pt-5">
+            <div class="footer-one col-lg-3 col-md-6 col-12">
+                <img src="static\images\logo\black.png" alt="" style ="width:200px">
+                <h2>JoBa.</h2>
+                <p>Our service is an online store that offers some international brands at the lowest prices.</p>
             </div>
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-              <img class="img-fluid mb-3 w" src="static\images\img\featured\2.jpg" alt="">
-                  <div class="star">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                  </div>
-              <h5 class="product-name">Training Shoe- Men's</h5>
-              <h4 class="product-price">$19.19</h4>
-              <button class="btn buy-btn">Buy Now</button>
+            <div class="footer-one col-lg-3 col-md-6 col-12">
+                <h5 class="pb-2">Home Sections</h5>
+                <ul class="text-uppercase list-unstyled">
+                  <li><a href="#home">Home</a></li>
+                  <li><a href="#brand">Brands</a></li>
+                  <li><a href="#featured">Featured</a></li>
+                  <li><a href="#brand">Brands</a></li>
+                  <li><a href="#watches">Watches</a></li>
+                  <li><a href="#blouses">Blouses</a></li>
+                  <li><a href="#shoes">Shoes</a></li>
+                </ul>
             </div>
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-              <img class="img-fluid mb-3" src="static\images\img\featured\3.jpg" alt="">
-                  <div class="star">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
+            <div class="footer-one col-lg-3 col-md-6 col-12">
+              <h5 class="pb-2">Contact Us</h5>
+                  <div>
+                    <h6 class="text-uppercase">Address</h6>
+                    <p>Palestine, Gaza, Rafah</p>
                   </div>
-              <h5 class="product-name">Sport Bag For Gym</h5>
-              <h4 class="product-price">$59.00</h4>
-              <button class="btn buy-btn">Buy Now</button>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-              <img class="img-fluid mb-3 w" src="static\images\img\featured\4.jpg" alt="">
-                  <div class="star">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
+                  <div>
+                    <h6 class="text-uppercase">Phone</h6>
+                    <p>+970597744760</p>
                   </div>
-              <h5 class="product-name">Beanie</h5>
-              <h4 class="product-price">$24.95</h4>
-              <button class=" btn buy-btn">Buy Now</button>
+                  <div>
+                    <h6 class="text-uppercase">Email</h6>
+                    <p>the1yousef98@gmail.com</p>
+                  </div>
             </div>
-        </div>
-      </section>
-
-{% endblock %}
+          <div class="footer-one col-lg-3 col-md-6 col-12">
+            <h5 class="pb-2">Instagram</h5>
+                <div class="row">
+                   <img src="static\images\insta\a1.jpg" alt="" class="img-fluid w-25 h-100 m-2">
+                   <img src="static\images\insta\a2.jpg" alt="" class="img-fluid w-25 h-100 m-2">
+                   <img src="static\images\insta\a3.jpg" alt="" class="img-fluid w-25 h-100 m-2">
+                   <img src="static\images\insta\a4.jpg" alt="" class="img-fluid w-25 h-100 m-2">
+                   <img src="static\images\insta\a5.jpg" alt="" class="img-fluid w-25 h-100 m-2">
+                </div>
+          </div>
+      </div>
+  
+      <div class="copyright mt-5">
+          <div class="row container mx-auto">
+  
+                <div class="col-lg-3 col-md-6 col-12 mb-4">
+                  <img src="static\images\img\payment.png" alt="" >
+                </div>
+  
+                <div class="col-lg-4 col-md-6 col-12 text-nowrap">
+                  <p>JoBa. eCommerce &#169; 2022. All Rights Reserved</p>
+                </div>
+  
+                <div class="col-lg-4 col-md-6 col-12">
+                    <a href="https://www.facebook.com/yousefkhaled.kullab" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/joseph_kullab/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/joseph-kullab/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://twitter.com/KullabYousef" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://github.com/YousefKullab" target="_blank"><i class="fa-brands fa-github"></i></a>
+                </div>
+          </div>
+      </div>
+  
+    </footer>
+    
+      <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+</body>
+</html>

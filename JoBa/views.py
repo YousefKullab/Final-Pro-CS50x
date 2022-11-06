@@ -31,22 +31,31 @@ def product():
     if request.method == "GET":
         return render_template("product.html", title="JoBa-Product", user=current_user)
     else:
-        ###############################################################################################
-                                            # Note >>> Problem
-        ###############################################################################################
-        product_name = "Product name"
-        product_price = int("100")
+        
+        from bs4 import BeautifulSoup
+        HTMLFile = open("JoBa/templates/product.html", "r")
+        index = HTMLFile.read()
+        soup= BeautifulSoup(index, 'lxml')
+        
+        product_name = soup.find("h3", {"id": "product-name"}).text
+        product_price = soup.find("h2", {"id": "product-price"}).text
         size = request.form.get("select-size")
         quantity = int(request.form.get("quantity"))
-        total = quantity * int(product_price)
-        
-        new_product = Product(product_name=product_name, product_price=product_price, size=size, quantity=quantity, user_id=current_user.id)
-        db.session.add(new_product)
-        db.session.commit()
-        flash("Your Product Added To Cart.", category="success")
-        return redirect(url_for("views.cart"))
+        if quantity > 12 or quantity < 1:
+            flash("You Must Add 1 to 12 Piece.", category="error")
+            return redirect(url_for("views.product"))
+        else:
+            new_product = Product(product_name=product_name, product_price=product_price, size=size, quantity=quantity, user_id=current_user.id)
+            if current_user.budget < (quantity * float(product_price)):
+                flash("You do not have enough money!", category="error")
+                return redirect(url_for("views.product"))
+            else:
+                db.session.add(new_product)
+                current_user.budget = current_user.budget - (quantity * float(product_price))
+                db.session.commit()
+                flash("Your Product Added To Cart.", category="success")
+    return render_template("cart.html", title="JoBa-Cart", user=current_user)
     
-
 @views.route("/cart", methods=["GET", "POST"])
 @login_required
 def cart():
@@ -64,7 +73,21 @@ def cart():
             user.budget = new_budget
             db.session.commit()
             flash("Money has been added successfully", category="success")
-            return redirect(url_for("views.cart"))
+            return redirect(url_for("auth.profile"))
+        
+@views.route("//delete-product", methods=["POST"])
+def delete_product():
+    product = json.loads(request.data)
+    productId = product['productId']
+    product = Product.query.get(productId)
+    if product:
+        if product.user_id == current_user.id:
+            current_user.budget = current_user.budget + (product.quantity * float(product.product_price))
+            db.session.delete(product)
+            flash("The Product Deleted Form The Cart.", category="success")
+            db.session.commit()
+            
+    return jsonify({})
         
 @views.route("/contact_us")
 @login_required

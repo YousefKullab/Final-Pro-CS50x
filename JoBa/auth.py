@@ -87,5 +87,5 @@ def profile():
             hash = generate_password_hash(new_password)
             user.password = hash  
             db.session.commit()
-            flash("The Password Will Be Changed!") 
+            flash("The Password Will Be Changed!", category="success") 
             return redirect(url_for("auth.profile"))

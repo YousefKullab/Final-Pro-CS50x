@@ -9,7 +9,7 @@
 - Html, Css, Js & Bootstrap For Front-End
 - Python, Flask & SQLAlCHEMY For Back-End
 
-## Project Files
+## Project Sections & Files
 
 - [main](#main)
 - [instance](#instance)
@@ -18,16 +18,16 @@
 
 ### main
 
-main.py >>> From main file you start run the flask website.
+main.py: From this file you start run the flask website.
 
 ### instance
 
-instance folder >>> It is created automatically when the site starts, and it creates a database for the site.
+instance folder: It is created automatically when the site starts, and it creates a database for the site.
 
 ### JoBa
 
 ### requirements
 
-requirements >>> It is just a text document containing some of the libraries used within the project.
+requirements.txt: It is just a text document containing some of the libraries used within the project.
 
 // Software Engineer Joseph .

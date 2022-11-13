@@ -35,6 +35,18 @@
 
 #### Static
 
+##### CSS Folder
+
+**style.css** It is a file written use CSS language that works on designing a web page in terms of fonts, colors, and how to display elements.
+
+##### Images Folder
+
+It's containing some images that i use to make JoBa. website.
+
+##### JS Folder
+
+**main.js** t is a file written use JavaScript language that works to make the website more interactive and dynamic.
+
 #### Tempaltes
 
 #### Python Files

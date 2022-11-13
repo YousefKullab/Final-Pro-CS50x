@@ -68,6 +68,14 @@ It's containing some images that i use to make JoBa. website.
 
 #### Python Files
 
+**init.py** The init.py files are required to make Python treat the directories as containing packages, i create the SQLAlchemy database and make the create_app method to initialize a flask app.
+
+**auth.py** It contains some root like login, sing_up that use to authentication the user to access to their accounts.
+
+**models.py** It contains two classes to allow you to make the user table and product table in you database.
+
+**views.py** It contains the rest of the root on the site and using HTML Forms and use post, get request you can get the user input and modify them in proportion to the site and store them in databases.
+
 ### Requirements
 
 **requirements.txt** It is just a text document containing some of the libraries used within the project.

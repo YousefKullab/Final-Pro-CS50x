@@ -37,7 +37,7 @@
 
 ##### CSS Folder
 
-**style.css** It is a file written use CSS language that works on designing a web page in terms of fonts, colors, and how to display elements.
+**style.css** It is a file written use CSS3 language that works on designing a web page in terms of fonts, colors, and how to display elements.
 
 ##### Images Folder
 
@@ -45,9 +45,26 @@ It's containing some images that i use to make JoBa. website.
 
 ##### JS Folder
 
-**main.js** t is a file written use JavaScript language that works to make the website more interactive and dynamic.
+**main.js** It is a file written use JavaScript language that works to make the website more interactive and dynamic.
 
 #### Tempaltes
+
+**base.html** It is a file written use HTML5, It is the basic structure of all pages of the site and using Jinja template language the rest of the web pages can inherit the basic elements of a site like head, nav, footer.
+
+**home.html** It is the home page of the site that contains some of the featured products in JoBa. website.
+
+**profile.html** It is a page that contains some basic information about the user such as name, email and budget.
+
+**cart.html** It is a page containing the pending products selected by the customer until the process is confirmed and the product is shipped.
+
+**login.html** Normal login page using HTML Form and post request use Python
+**sign_up.html** Normal sign_up page using HTML Form and post request use Python
+
+**contact_us.html** Contact support page The communication via e-mail has been programmed using JS sendEmail function use [emailjs](https://www.emailjs.com/)
+
+**shop1.html, shop2.html && shop3.html** They are pages to display the products available in JoBa. website
+
+**product.html** It is a product page that contains information about the product and an image. The gallery inside the page has been programmed using JavaScript.
 
 #### Python Files
 

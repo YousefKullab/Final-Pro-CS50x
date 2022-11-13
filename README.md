@@ -15,19 +15,24 @@
 - [instance](#instance)
 - [JoBa](#joba)
 - [requirements](#requirements)
+- [License](#license)
 
-### main
+### Main
 
 main.py: From this file you start run the flask website.
 
-### instance
+### Instance
 
 instance folder: It is created automatically when the site starts, and it creates a database for the site.
 
 ### JoBa
 
-### requirements
+### Requirements
 
 requirements.txt: It is just a text document containing some of the libraries used within the project.
+
+### License
+
+Copyright © 2022 JoBa. eCommerce
 
 // Software Engineer Joseph .

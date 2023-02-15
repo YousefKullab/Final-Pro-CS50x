@@ -2,12 +2,23 @@
 
 ## JoBa. full responsive e-commerce website
 
-#### Video Demo:  <https://www.youtube.com/watch?v=GQIYdkfCGBc>
+#### [Video Demo](https://www.youtube.com/watch?v=GQIYdkfCGBc)
 #### Description: The Project Idea is the Full Responsive e-commerce Website.
 ## Techniques That Use :
 
 - Html, Css, Js & Bootstrap For Front-End
 - Python, Flask & SQLAlCHEMY For Back-End
+
+## requirements to run Flask website ( E-Commerce Website )
+- Open [VS code](https://code.visualstudio.com/)
+- Install some required extensions
+  - [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
+  - [Python Extension Pack](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-extension-pack)
+- [Install Python](https://www.python.org/downloads/)
+- Install pip use this command in teminal **py -m ensurepip --upgrade** and than run this command   **py get-pip.py**
+- Install Flask use this command **pip install -U Flask**
+- Install SQLAlchemy For Flask use this command **pip install -U Flask-SQLAlchemy**
+- Finally run this command is your termianl **python -m flask run** or click in **Run** button
 
 ## Project Sections & Files
 

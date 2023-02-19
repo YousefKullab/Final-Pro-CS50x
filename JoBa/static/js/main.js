@@ -9,11 +9,9 @@ for (let i= 0 ; i < smallImages.length; i++){
     };
 }
 
-
 // Get the button Top:
 
 let mybutton = document.getElementById("myBtn");
-
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
@@ -52,7 +50,6 @@ function sendEmail() {
     .catch((res) => console.log(err));
 };
 
-// Note Hover Navbar >>> Highlight ??????????????????????????????
 
 // Delete Product 
 
@@ -64,6 +61,4 @@ function deleteProduct(productId){
       window.location.href = "/cart"
   });
 }
-
-
 

@@ -1,4 +1,4 @@
-# Final-Project-CS50
+# Final-Project-CS50x
 
 ## JoBa. full responsive e-commerce website
 

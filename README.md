@@ -1,9 +1,8 @@
-# Final-Project-CS50x
+# Full Responsive E-commerce Website 
 
-## JoBa. Full Responsive E-commerce Website
+The proposed concept involves creating a fully adaptable e-commerce website that seamlessly adjusts to different devices and screen sizes.
 
-[YouTube Video Demo For Website](https://www.youtube.com/watch?v=GQIYdkfCGBc)
-The project idea is the Full Responsive E-commerce Website.
+### [YouTube Video Demo For Website](https://www.youtube.com/watch?v=GQIYdkfCGBc)
 
 ## Techniques That Use
 
@@ -51,4 +50,4 @@ The project idea is the Full Responsive E-commerce Website.
 
 ## License
 
-Copyright © 2022 JoBa. eCommerce
+Copyright © 2022 JoBa. E-commerce
